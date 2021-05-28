@@ -1,0 +1,17 @@
+{% extends "app/base.html" %}
+
+{% block title %} Inside {% endblock %}
+
+{% block content %}
+	<h1>Inside Page</h1>
+
+	{% if user.is_authenticated %}
+		<h2>Email: {{ curr_user.user.email }} </h2>
+		<h2>First Name: {{ curr_user.user.first_name }} </h2>
+		<h2>Last Name: {{ curr_user.user.last_name }} </h2>
+		<a class="btn btn-primary"href="{% url 'logout' %}" role="button">Log out</a>
+	{% else %}
+
+	{% endif %}
+	
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "app/base.html" %}
+
+{% block title %} Step 1 {% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<h1>Step 1 Page</h1>
+	{% if user.is_authenticated %}
+		<form method="POST">
+			{% csrf_token %}
+			{{set_email_form|crispy}}
+			<!--{{ set_email_form.email|as_crispy_field }}-->                    
+			<button class="btn btn-primary" type="submit">Next</button>
+		</form>
+		<a class="btn btn-primary"href="{% url 'logout' %}" role="button">Log out</a>
+	{% else %}
+
+	{% endif %}
+{% endblock %}
